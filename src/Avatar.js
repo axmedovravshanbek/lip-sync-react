@@ -3,6 +3,9 @@ import { useGLTF } from '@react-three/drei'
 import { button, useControls } from "leva";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import Male1 from "./Male1";
+import Female1 from "./Female1";
+import Female2 from "./Female2";
 
 const facialExpressions = {
   default: {},
@@ -39,21 +42,44 @@ const corresponding = {
   X: "viseme_I",
 };
 
-const xx = {
-  "mouthCue": "{\"metadata\":{\"soundFile\":\"C:\\\\Users\\\\SB\\\\Documents\\\\github\\\\max-node\\\\files\\\\file_1711528619085.wav\",\"duration\":3.94},\"mouthCues\":[{\"start\":0,\"end\":0.01,\"value\":\"X\"},{\"start\":0.01,\"end\":0.08,\"value\":\"B\"},{\"start\":0.08,\"end\":0.17,\"value\":\"D\"},{\"start\":0.17,\"end\":0.21,\"value\":\"C\"},{\"start\":0.21,\"end\":0.29,\"value\":\"A\"},{\"start\":0.29,\"end\":0.35,\"value\":\"C\"},{\"start\":0.35,\"end\":0.55,\"value\":\"B\"},{\"start\":0.55,\"end\":0.83,\"value\":\"F\"},{\"start\":0.83,\"end\":1.04,\"value\":\"B\"},{\"start\":1.04,\"end\":1.11,\"value\":\"G\"},{\"start\":1.11,\"end\":1.46,\"value\":\"B\"},{\"start\":1.46,\"end\":1.53,\"value\":\"C\"},{\"start\":1.53,\"end\":1.6,\"value\":\"D\"},{\"start\":1.6,\"end\":1.68,\"value\":\"A\"},{\"start\":1.68,\"end\":1.81,\"value\":\"F\"},{\"start\":1.81,\"end\":1.88,\"value\":\"C\"},{\"start\":1.88,\"end\":2.02,\"value\":\"B\"},{\"start\":2.02,\"end\":2.3,\"value\":\"C\"},{\"start\":2.3,\"end\":2.42,\"value\":\"A\"},{\"start\":2.42,\"end\":2.48,\"value\":\"B\"},{\"start\":2.48,\"end\":2.6,\"value\":\"G\"},{\"start\":2.6,\"end\":2.67,\"value\":\"E\"},{\"start\":2.67,\"end\":2.88,\"value\":\"B\"},{\"start\":2.88,\"end\":3.02,\"value\":\"D\"},{\"start\":3.02,\"end\":3.09,\"value\":\"H\"},{\"start\":3.09,\"end\":3.16,\"value\":\"B\"},{\"start\":3.16,\"end\":3.23,\"value\":\"C\"},{\"start\":3.23,\"end\":3.37,\"value\":\"B\"},{\"start\":3.37,\"end\":3.51,\"value\":\"D\"},{\"start\":3.51,\"end\":3.58,\"value\":\"B\"},{\"start\":3.58,\"end\":3.72,\"value\":\"C\"},{\"start\":3.72,\"end\":3.93,\"value\":\"B\"},{\"start\":3.93,\"end\":3.94,\"value\":\"X\"}]}"
+const chars = {
+  'Male 1': {
+    component: <Male1/>,
+    path: '/models/6604ff79197732ba755e4c48.glb',
+    audio: '/file_1711601501992.mp3',
+    mouthCue: "{\"metadata\":{\"soundFile\":\"C:\\\\Users\\\\SB\\\\Documents\\\\github\\\\max-node\\\\files\\\\file_1711601501992.wav\",\"duration\":4.43},\"mouthCues\":[{\"start\":0,\"end\":0.21,\"value\":\"B\"},{\"start\":0.21,\"end\":0.49,\"value\":\"F\"},{\"start\":0.49,\"end\":0.56,\"value\":\"B\"},{\"start\":0.56,\"end\":0.77,\"value\":\"C\"},{\"start\":0.77,\"end\":0.91,\"value\":\"B\"},{\"start\":0.91,\"end\":1.05,\"value\":\"D\"},{\"start\":1.05,\"end\":1.12,\"value\":\"C\"},{\"start\":1.12,\"end\":1.22,\"value\":\"A\"},{\"start\":1.22,\"end\":1.37,\"value\":\"E\"},{\"start\":1.37,\"end\":1.79,\"value\":\"B\"},{\"start\":1.79,\"end\":1.98,\"value\":\"X\"},{\"start\":1.98,\"end\":2.06,\"value\":\"B\"},{\"start\":2.06,\"end\":2.14,\"value\":\"A\"},{\"start\":2.14,\"end\":2.27,\"value\":\"E\"},{\"start\":2.27,\"end\":2.41,\"value\":\"F\"},{\"start\":2.41,\"end\":2.55,\"value\":\"B\"},{\"start\":2.55,\"end\":2.76,\"value\":\"C\"},{\"start\":2.76,\"end\":2.9,\"value\":\"B\"},{\"start\":2.9,\"end\":2.96,\"value\":\"A\"},{\"start\":2.96,\"end\":3.02,\"value\":\"C\"},{\"start\":3.02,\"end\":3.1,\"value\":\"A\"},{\"start\":3.1,\"end\":3.41,\"value\":\"F\"},{\"start\":3.41,\"end\":3.55,\"value\":\"B\"},{\"start\":3.55,\"end\":3.69,\"value\":\"G\"},{\"start\":3.69,\"end\":3.76,\"value\":\"E\"},{\"start\":3.76,\"end\":3.83,\"value\":\"B\"},{\"start\":3.83,\"end\":3.97,\"value\":\"D\"},{\"start\":3.97,\"end\":4.18,\"value\":\"B\"},{\"start\":4.18,\"end\":4.43,\"value\":\"X\"}]}"
+  },
+  'Female 1': {
+    component: <Female1/>,
+    path: '/models/6601164a880662f11ec7b522.glb',
+    audio: '/file_1711528619085.mp3',
+    mouthCue: "{\"metadata\":{\"soundFile\":\"C:\\\\Users\\\\SB\\\\Documents\\\\github\\\\max-node\\\\files\\\\file_1711528619085.wav\",\"duration\":3.94},\"mouthCues\":[{\"start\":0,\"end\":0.01,\"value\":\"X\"},{\"start\":0.01,\"end\":0.08,\"value\":\"B\"},{\"start\":0.08,\"end\":0.17,\"value\":\"D\"},{\"start\":0.17,\"end\":0.21,\"value\":\"C\"},{\"start\":0.21,\"end\":0.29,\"value\":\"A\"},{\"start\":0.29,\"end\":0.35,\"value\":\"C\"},{\"start\":0.35,\"end\":0.55,\"value\":\"B\"},{\"start\":0.55,\"end\":0.83,\"value\":\"F\"},{\"start\":0.83,\"end\":1.04,\"value\":\"B\"},{\"start\":1.04,\"end\":1.11,\"value\":\"G\"},{\"start\":1.11,\"end\":1.46,\"value\":\"B\"},{\"start\":1.46,\"end\":1.53,\"value\":\"C\"},{\"start\":1.53,\"end\":1.6,\"value\":\"D\"},{\"start\":1.6,\"end\":1.68,\"value\":\"A\"},{\"start\":1.68,\"end\":1.81,\"value\":\"F\"},{\"start\":1.81,\"end\":1.88,\"value\":\"C\"},{\"start\":1.88,\"end\":2.02,\"value\":\"B\"},{\"start\":2.02,\"end\":2.3,\"value\":\"C\"},{\"start\":2.3,\"end\":2.42,\"value\":\"A\"},{\"start\":2.42,\"end\":2.48,\"value\":\"B\"},{\"start\":2.48,\"end\":2.6,\"value\":\"G\"},{\"start\":2.6,\"end\":2.67,\"value\":\"E\"},{\"start\":2.67,\"end\":2.88,\"value\":\"B\"},{\"start\":2.88,\"end\":3.02,\"value\":\"D\"},{\"start\":3.02,\"end\":3.09,\"value\":\"H\"},{\"start\":3.09,\"end\":3.16,\"value\":\"B\"},{\"start\":3.16,\"end\":3.23,\"value\":\"C\"},{\"start\":3.23,\"end\":3.37,\"value\":\"B\"},{\"start\":3.37,\"end\":3.51,\"value\":\"D\"},{\"start\":3.51,\"end\":3.58,\"value\":\"B\"},{\"start\":3.58,\"end\":3.72,\"value\":\"C\"},{\"start\":3.72,\"end\":3.93,\"value\":\"B\"},{\"start\":3.93,\"end\":3.94,\"value\":\"X\"}]}"
+  },
+  'Female 2': {
+    component: <Female2/>,
+    path: '/models/660503642aa392635c3178cd.glb',
+    audio: '/file_1711538630792.mp3',
+    mouthCue: "{\"metadata\":{\"soundFile\":\"C:\\\\Users\\\\SB\\\\Documents\\\\github\\\\max-node\\\\files\\\\file_1711538630792.wav\",\"duration\":3.77},\"mouthCues\":[{\"start\":0,\"end\":0.47,\"value\":\"B\"},{\"start\":0.47,\"end\":0.54,\"value\":\"C\"},{\"start\":0.54,\"end\":0.82,\"value\":\"B\"},{\"start\":0.82,\"end\":0.89,\"value\":\"C\"},{\"start\":0.89,\"end\":0.96,\"value\":\"B\"},{\"start\":0.96,\"end\":1.1,\"value\":\"C\"},{\"start\":1.1,\"end\":1.17,\"value\":\"H\"},{\"start\":1.17,\"end\":1.25,\"value\":\"A\"},{\"start\":1.25,\"end\":1.38,\"value\":\"C\"},{\"start\":1.38,\"end\":1.45,\"value\":\"B\"},{\"start\":1.45,\"end\":1.52,\"value\":\"C\"},{\"start\":1.52,\"end\":1.68,\"value\":\"B\"},{\"start\":1.68,\"end\":1.76,\"value\":\"A\"},{\"start\":1.76,\"end\":1.85,\"value\":\"E\"},{\"start\":1.85,\"end\":1.92,\"value\":\"F\"},{\"start\":1.92,\"end\":2.2,\"value\":\"B\"},{\"start\":2.2,\"end\":2.27,\"value\":\"F\"},{\"start\":2.27,\"end\":2.55,\"value\":\"B\"},{\"start\":2.55,\"end\":2.65,\"value\":\"A\"},{\"start\":2.65,\"end\":2.71,\"value\":\"C\"},{\"start\":2.71,\"end\":2.83,\"value\":\"B\"},{\"start\":2.83,\"end\":2.9,\"value\":\"C\"},{\"start\":2.9,\"end\":2.97,\"value\":\"B\"},{\"start\":2.97,\"end\":3.04,\"value\":\"C\"},{\"start\":3.04,\"end\":3.25,\"value\":\"B\"},{\"start\":3.25,\"end\":3.33,\"value\":\"A\"},{\"start\":3.33,\"end\":3.48,\"value\":\"C\"},{\"start\":3.48,\"end\":3.76,\"value\":\"B\"},{\"start\":3.76,\"end\":3.77,\"value\":\"X\"}]}"
+  }
 }
 
-
-export default function Model ( props ) {
+export default function Model () {
 
   // const [animation, setAnimation] = useState("idle");
+  // const [char, setCharId] = useState(0);
   const [blink, setBlink] = useState(false);
   const [winkLeft, setWinkLeft] = useState(false);
   const [winkRight, setWinkRight] = useState(false);
   const [facialExpression, setFacialExpression] = useState("");
 
-  const { playAudio, script } = useControls({
-    playAudio: button(() => audio.play()),
+
+  const { playAudio, char } = useControls({
+    playAudio: false,
+    char: {
+      value: "Male 1",
+      options: ["Male 1", "Female 1", "Female 2"],
+    },
+    // playAudio: button(() => console.log(char)),
     winkLeft: button(() => {
       setWinkLeft(true);
       setTimeout(() => setWinkLeft(false), 300);
@@ -74,14 +100,13 @@ export default function Model ( props ) {
   });
 
   const group = useRef();
-  const audio = useMemo(() => new Audio('/file_1711528619085.mp3'), [script]);
-  console.log(audio)
-  const lipsync = JSON.parse(xx.mouthCue);
-  const { nodes, materials, scene } = useGLTF('/models/6601164a880662f11ec7b522.glb')
+  const audio = useMemo(() => new Audio(chars[char].audio), [char])
+  const lipsync = JSON.parse(chars[char].mouthCue)
+
+  const { nodes, materials, scene } = useGLTF(chars[char].path)
 
   // const { animations } = useGLTF("/models/animations.glb");
   // const { actions } = useAnimations(animations, group);
-
 
   useFrame(() => {
     Object.keys(nodes.EyeLeft.morphTargetDictionary).forEach(( key ) => {
@@ -121,6 +146,13 @@ export default function Model ( props ) {
   // actions[animation].reset().fadeIn(0.5).play();
   // return () => actions[animation]?.fadeOut(0.5);
   // }, [animation]);
+  useEffect(() => {
+    if(playAudio) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }, [playAudio, char]);
 
   useEffect(() => {
     let blinkTimeout;
@@ -156,75 +188,10 @@ export default function Model ( props ) {
     });
   };
 
-  return (
-    <group ref={group} {...props} dispose={null}>
-      <primitive object={nodes.Hips}/>
-      <skinnedMesh
-        name="EyeLeft"
-        geometry={nodes.EyeLeft.geometry}
-        material={materials.Wolf3D_Eye}
-        skeleton={nodes.EyeLeft.skeleton}
-        morphTargetDictionary={nodes.EyeLeft.morphTargetDictionary}
-        morphTargetInfluences={nodes.EyeLeft.morphTargetInfluences}
-      />
-      <skinnedMesh
-        name="EyeRight"
-        geometry={nodes.EyeRight.geometry}
-        material={materials.Wolf3D_Eye}
-        skeleton={nodes.EyeRight.skeleton}
-        morphTargetDictionary={nodes.EyeRight.morphTargetDictionary}
-        morphTargetInfluences={nodes.EyeRight.morphTargetInfluences}
-      />
-      <skinnedMesh
-        name="Wolf3D_Head"
-        geometry={nodes.Wolf3D_Head.geometry}
-        material={materials.Wolf3D_Skin}
-        skeleton={nodes.Wolf3D_Head.skeleton}
-        morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
-        morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
-      />
-      <skinnedMesh
-        name="Wolf3D_Teeth"
-        geometry={nodes.Wolf3D_Teeth.geometry}
-        material={materials.Wolf3D_Teeth}
-        skeleton={nodes.Wolf3D_Teeth.skeleton}
-        morphTargetDictionary={nodes.Wolf3D_Teeth.morphTargetDictionary}
-        morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
-      />
-      <skinnedMesh
-        geometry={nodes['hair-60'].geometry}
-        material={materials.M_Hair_60}
-        skeleton={nodes['hair-60'].skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Glasses.geometry}
-        material={materials.Wolf3D_Glasses}
-        skeleton={nodes.Wolf3D_Glasses.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Body.geometry}
-        material={materials.Wolf3D_Body}
-        skeleton={nodes.Wolf3D_Body.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Bottom.geometry}
-        material={materials.Wolf3D_Outfit_Bottom}
-        skeleton={nodes.Wolf3D_Outfit_Bottom.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Footwear.geometry}
-        material={materials.Wolf3D_Outfit_Footwear}
-        skeleton={nodes.Wolf3D_Outfit_Footwear.skeleton}
-      />
-      <skinnedMesh
-        geometry={nodes.Wolf3D_Outfit_Top.geometry}
-        material={materials.Wolf3D_Outfit_Top}
-        skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
-      />
-    </group>
-  )
+  return React.cloneElement(chars[char].component, { group, nodes, materials })
 }
 
-useGLTF.preload('/models/6601164a880662f11ec7b522.glb')
+// useGLTF.preload('/models/6601164a880662f11ec7b523.glb')
 //  https://models.readyplayer.me/6601164a880662f11ec7b522.glb?morphTargets=ARKit,Oculus Visemes
-
+//  https://models.readyplayer.me/6604ff79197732ba755e4c48.glb?morphTargets=ARKit,Oculus Visemes
+//  https://models.readyplayer.me/660503642aa392635c3178cd.glb?morphTargets=ARKit,Oculus Visemes
