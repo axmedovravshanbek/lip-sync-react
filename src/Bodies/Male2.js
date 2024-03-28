@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import { useGLTF } from "@react-three/drei";
 
-const Female1 = ( { group, nodes, materials } ) => {
+const Male1 = ( { group, nodes, materials } ) => {
   return (
-    <group ref={group} position={[0, -3.1, 0]} scale={2} dispose={null}>
+    <group ref={group} position={[0, -3.3, 0]} scale={2} dispose={null}>
       <primitive object={nodes.Hips}/>
       <skinnedMesh
         name="EyeLeft"
@@ -38,9 +38,9 @@ const Female1 = ( { group, nodes, materials } ) => {
         morphTargetInfluences={nodes.Wolf3D_Teeth.morphTargetInfluences}
       />
       <skinnedMesh
-        geometry={nodes['hair-60'].geometry}
-        material={materials.M_Hair_60}
-        skeleton={nodes['hair-60'].skeleton}
+        geometry={nodes.Wolf3D_Hair.geometry}
+        material={materials.Wolf3D_Hair}
+        skeleton={nodes.Wolf3D_Hair.skeleton}
       />
       <skinnedMesh
         geometry={nodes.Wolf3D_Glasses.geometry}
@@ -68,9 +68,9 @@ const Female1 = ( { group, nodes, materials } ) => {
         skeleton={nodes.Wolf3D_Outfit_Top.skeleton}
       />
     </group>
-  );
-};
+  )
+}
 
-export default Female1;
+export default Male1;
 
-useGLTF.preload('/6601164a880662f11ec7b522.glb')
+useGLTF.preload('/660516b2d32ccf39d49ed64d.glb')
